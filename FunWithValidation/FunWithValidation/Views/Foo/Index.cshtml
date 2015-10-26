@@ -1,0 +1,39 @@
+﻿@using FunWithValidation.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@{ 
+    List<Foo> list = ViewBag.List;
+}
+
+@if (list.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var foo in list)
+            {
+                <tr>
+                    <td>@foo.Username</td>
+                    <td>@foo.EmailAddress</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>The list is empty.</div>
+}
+
+<a class="btn btn-primary" href="@Url.Action("Create")">Create New</a>
+
